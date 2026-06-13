@@ -67,7 +67,7 @@ export default async function Home() {
             {/* <span className="text-[11px] text-gray-500 border border-gray-700 px-2 py-0.5 rounded-full hidden sm:inline shrink-0">
               Suomi
             </span> */}
-            <nav className="hidden md:flex items-center gap-0.5 ml-1">
+            {/* <nav className="hidden md:flex items-center gap-0.5 ml-1">
               {[
                 { label: "Feed", active: true }
               ].map(({ label, active }) => (
@@ -82,7 +82,7 @@ export default async function Home() {
                   {label}
                 </button>
               ))}
-            </nav>
+            </nav> */}
           </div>
           <div className="flex items-center gap-3 shrink-0">
             <span className="text-[11px] text-gray-600 hidden lg:inline">
