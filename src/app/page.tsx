@@ -60,7 +60,7 @@ export default async function Home() {
   return (
     <div className="min-h-screen bg-[#f6f7f9]">
       {/* ── Header ── */}
-      <header className="sticky top-0 z-50 bg-[#0d1117] text-white shadow-xl">
+      <header className="sticky top-0 z-50 bg-white text-gray-900 shadow-xl">
         <div className="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between gap-4">
           <div className="flex items-center gap-4 min-w-0">
             <img src="/logo.png" alt="fraME" className="h-auto w-auto max-h-30"/>
@@ -75,8 +75,8 @@ export default async function Home() {
                   key={label}
                   className={`px-3 py-1.5 rounded-md text-sm transition-colors ${
                     active
-                      ? "bg-white/10 text-white font-medium"
-                      : "text-gray-500 hover:text-white hover:bg-white/5"
+                      ? "bg-gray-100 text-gray-900 font-medium"
+                      : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
                   }`}
                 >
                   {label}
@@ -88,7 +88,7 @@ export default async function Home() {
             <span className="text-[11px] text-gray-600 hidden lg:inline">
               {new Date().toLocaleDateString("fi-FI", { day: "numeric", month: "short", year: "numeric" })}
             </span>
-            <button className="text-xs bg-white text-gray-900 px-3 py-1.5 rounded-full font-semibold hover:bg-gray-100 transition-colors">
+            <button className="text-xs bg-gray-900 text-white px-3 py-1.5 rounded-full font-semibold hover:bg-gray-800 transition-colors">
               Kirjaudu
             </button>
           </div>
