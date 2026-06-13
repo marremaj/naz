@@ -1,7 +1,6 @@
-# naz
+# fraME
 
-Islam- ja muslimiaiheiset uutiset Suomesta — aggregoituna suurimmista suomalaisista medioista.
-
+Islam and Muslim-related news from Finland — aggregated from the biggest Finnish media outlets.
 Built with Next.js. Run locally:
 
 ```bash

@@ -63,16 +63,13 @@ export default async function Home() {
       <header className="sticky top-0 z-50 bg-[#0d1117] text-white shadow-xl">
         <div className="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between gap-4">
           <div className="flex items-center gap-4 min-w-0">
-            <span className="font-black text-xl tracking-tighter shrink-0">NAZ</span>
-            <span className="text-[11px] text-gray-500 border border-gray-700 px-2 py-0.5 rounded-full hidden sm:inline shrink-0">
+            <img src="/logo.png" alt="fraME" className="h-auto w-auto max-h-30"/>
+            {/* <span className="text-[11px] text-gray-500 border border-gray-700 px-2 py-0.5 rounded-full hidden sm:inline shrink-0">
               Suomi
-            </span>
+            </span> */}
             <nav className="hidden md:flex items-center gap-0.5 ml-1">
               {[
-                { label: "Koti", active: true },
-                { label: "Sinulle", active: false },
-                { label: "Paikalliset", active: false },
-                { label: "Katvealueet", active: false },
+                { label: "Feed", active: true }
               ].map(({ label, active }) => (
                 <button
                   key={label}
@@ -105,7 +102,7 @@ export default async function Home() {
             {/* Topic filter */}
             <div className="bg-white rounded-2xl border border-gray-200 p-4 shadow-sm">
               <p className="text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-3">
-                Aiheet
+                Topics
               </p>
               <ul className="space-y-0.5">
                 {[
@@ -142,7 +139,7 @@ export default async function Home() {
             {/* Source legend */}
             <div className="bg-white rounded-2xl border border-gray-200 p-4 shadow-sm">
               <p className="text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-3">
-                Mediakattavuus
+                Media Coverage
               </p>
               <ul className="space-y-2">
                 {sourceNames.map((src) => (

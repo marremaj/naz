@@ -86,7 +86,7 @@ async function fetchXML(url: string): Promise<Record<string, unknown>[]> {
   try {
     const res = await fetch(url, {
       next: { revalidate: 300 },
-      headers: { "User-Agent": "Mozilla/5.0 (compatible; NazFeed/1.0)" },
+      headers: { "User-Agent": "Mozilla/5.0 (compatible; fraMEFeed/1.0)" },
       signal: AbortSignal.timeout(8000),
     });
     if (!res.ok) return [];
