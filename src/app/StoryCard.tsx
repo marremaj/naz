@@ -166,7 +166,12 @@ export default function StoryCard({ group }: { group: StoryGroup }) {
             (isExpertOpen && "bg-green-400")
           }
         >
-          <img src="down-chevron.svg" width="16" className={`mr-1 transition-transform duration-300 ${isExpertOpen ? 'rotate-180' : ''}`}></img> Expert comments
+          <img
+            src="down-chevron.svg"
+            width="16"
+            className={`mr-1 transition-transform duration-300 ${isExpertOpen ? "rotate-180" : ""}`}
+          ></img>{" "}
+          Expert comments
         </button>
       </div>
 
@@ -177,12 +182,14 @@ export default function StoryCard({ group }: { group: StoryGroup }) {
             such instructions. It has also been noted in the public debate that
             there have been very few such cases.
           </p>
-        <button
-          className="cursor-pointer flex text-xs text-gray-900 px-3 py-1.5 rounded-full font-semibold hover:bg-gray-100 transition-colors "
-        >
-          <img src="share.svg" width="16" className={`mr-1 transition-transform duration-300`}></img>
-          Share
-        </button>
+          <button className="cursor-pointer flex text-xs text-gray-900 px-3 py-1.5 rounded-full font-semibold hover:bg-gray-100 transition-colors ">
+            <img
+              src="share.svg"
+              width="16"
+              className={`mr-1 transition-transform duration-300`}
+            ></img>
+            Share
+          </button>
           <p className="font-semibold text-center">Shramarke Aw-Musse</p>
           <p className="text-gray-500 text-center">Imam of Myyrmäki Mosque</p>
         </div>
@@ -195,7 +202,11 @@ export default function StoryCard({ group }: { group: StoryGroup }) {
             (isBackgroundOpen && "bg-green-400")
           }
         >
-          <img src="down-chevron.svg" width="16" className={`mr-1 transition-transform duration-300 ${isBackgroundOpen ? 'rotate-180' : ''}`}></img>
+          <img
+            src="down-chevron.svg"
+            width="16"
+            className={`mr-1 transition-transform duration-300 ${isBackgroundOpen ? "rotate-180" : ""}`}
+          ></img>
           Background info
         </button>
       </div>
@@ -203,7 +214,11 @@ export default function StoryCard({ group }: { group: StoryGroup }) {
       {isBackgroundOpen && (
         <div className="mt-2 text-sm text-gray-700 space-y-2">
           <p>
-            – Finns Party MP Vesa-Matti Saarakkala submitted a bill that would ban wearing of face-covering burqas and niqabs in public places, subject to a fine. According to him, Finland should intervene now, when the intervention does not yet affect a significant number of people in Finland, in order to maintain social peace.
+            – Finns Party MP Vesa-Matti Saarakkala submitted a bill that would
+            ban wearing of face-covering burqas and niqabs in public places,
+            subject to a fine. According to him, Finland should intervene now,
+            when the intervention does not yet affect a significant number of
+            people in Finland, in order to maintain social peace.
           </p>
           <p className="font-semibold text-center">
             Source: 3.5.2013{" "}
@@ -215,14 +230,15 @@ export default function StoryCard({ group }: { group: StoryGroup }) {
       )}
 
       <div className="flex justify-end w-full ">
-        <button
-          className="cursor-pointer text-xs text-gray-900 px-3 py-1.5 rounded-full font-semibold hover:bg-gray-100 transition-colors "
+        <a
+          href="https://108b0ff9b8.clvaw-cdnwnd.com/c6673b656bd2599ee2673be9a1af532a/200000531-28fd528fd7/Statement_Niqab-ban_2025.pdf?ph=108b0ff9b8"
+          target="_blank"
         >
-          &#x279A; View Statement
-        </button>
+          <button className="cursor-pointer text-xs text-gray-900 px-3 py-1.5 rounded-full font-semibold hover:bg-gray-100 transition-colors ">
+            &#x279A; View Statement
+          </button>
+        </a>
       </div>
-
-      
     </article>
   );
 }
