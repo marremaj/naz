@@ -3,32 +3,39 @@
 import { useState } from "react";
 import { type StoryGroup } from "@/lib/feeds";
 
-
 // Map source name fragments → brand colors
 const SOURCE_COLOR_MAP: [string, string][] = [
-  ["yle",               "#0099CC"],
+  ["yle", "#0099CC"],
   ["helsingin sanomat", "#C8102E"],
-  ["hs.fi",             "#C8102E"],
-  ["ilta-sanomat",      "#E87722"],
-  ["is.fi",             "#E87722"],
-  ["iltalehti",         "#B22222"],
-  ["il.fi",             "#B22222"],
-  ["mtv",               "#CF0A2C"],
-  ["aamulehti",         "#003D84"],
-  ["turun sanomat",     "#005B8E"],
-  ["ts.fi",             "#005B8E"],
-  ["suomen kuvalehti",  "#6B3E8E"],
-  ["kaleva",            "#008542"],
-  ["verkkouutiset",     "#444444"],
-  ["suomenmaa",         "#2D6A2D"],
-  ["seurakuntalainen",  "#8B6914"],
-  ["kirkko",            "#8B6914"],
-  ["maaseudun",         "#5C7A2D"],
+  ["hs.fi", "#C8102E"],
+  ["ilta-sanomat", "#E87722"],
+  ["is.fi", "#E87722"],
+  ["iltalehti", "#B22222"],
+  ["il.fi", "#B22222"],
+  ["mtv", "#CF0A2C"],
+  ["aamulehti", "#003D84"],
+  ["turun sanomat", "#005B8E"],
+  ["ts.fi", "#005B8E"],
+  ["suomen kuvalehti", "#6B3E8E"],
+  ["kaleva", "#008542"],
+  ["verkkouutiset", "#444444"],
+  ["suomenmaa", "#2D6A2D"],
+  ["seurakuntalainen", "#8B6914"],
+  ["kirkko", "#8B6914"],
+  ["maaseudun", "#5C7A2D"],
 ];
 
 const PALETTE = [
-  "#6366f1","#0ea5e9","#10b981","#f59e0b","#ef4444",
-  "#8b5cf6","#06b6d4","#84cc16","#f97316","#ec4899",
+  "#6366f1",
+  "#0ea5e9",
+  "#10b981",
+  "#f59e0b",
+  "#ef4444",
+  "#8b5cf6",
+  "#06b6d4",
+  "#84cc16",
+  "#f97316",
+  "#ec4899",
 ];
 const colorCache = new Map<string, string>();
 let paletteIdx = 0;
@@ -46,7 +53,6 @@ function sourceColor(name: string): string {
   colorCache.set(name, color);
   return color;
 }
-
 
 function timeAgo(date: Date): string {
   const diff = Date.now() - date.getTime();
@@ -91,12 +97,12 @@ export default function StoryCard({ group }: { group: StoryGroup }) {
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block" />
           Islam &amp; Muslimit
         </span>
-        {isBlindspot && (
+        {/* {isBlindspot && (
           <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-amber-700 bg-amber-50 px-2.5 py-0.5 rounded-full border border-amber-200 uppercase tracking-wide">
             <span className="text-amber-500">⚠</span>
             Katvealue
           </span>
-        )}
+        )} */}
         {group.articles.length > 1 && (
           <span className="text-[11px] font-semibold text-blue-700 bg-blue-50 px-2.5 py-0.5 rounded-full border border-blue-200 uppercase tracking-wide">
             {group.articles.length} lähdettä
@@ -120,7 +126,11 @@ export default function StoryCard({ group }: { group: StoryGroup }) {
       <div className="flex items-center gap-2 text-xs text-gray-400 mb-3">
         <span>{timeAgo(group.date)} sitten</span>
         <span>·</span>
-        <span>{uniqueSources.length === 1 ? uniqueSources[0] : `${uniqueSources.length} mediaa`}</span>
+        <span>
+          {uniqueSources.length === 1
+            ? uniqueSources[0]
+            : `${uniqueSources.length} mediaa`}
+        </span>
       </div>
 
       {/* Coverage bar */}
@@ -149,53 +159,70 @@ export default function StoryCard({ group }: { group: StoryGroup }) {
         </div>
       )}
       <div className="flex justify-end w-full">
-  <button
-    onClick={() => setIsExpertOpen(!isExpertOpen)}
-    className={"text-xs text-gray-900 px-3 py-1.5 rounded-full font-semibold hover:bg-gray-100 transition-colors " + (isExpertOpen && "bg-green-400")}
-  >
-    Expert comments
-  </button>
-</div>
+        <button
+          onClick={() => setIsExpertOpen(!isExpertOpen)}
+          className={
+            "flex text-xs text-gray-900 px-3 py-1.5 rounded-full font-semibold hover:bg-gray-100 transition-colors cursor-pointer " +
+            (isExpertOpen && "bg-green-400")
+          }
+        >
+          <img src="down-chevron.svg" width="16" className={`mr-1 transition-transform duration-300 ${isExpertOpen ? 'rotate-180' : ''}`}></img> Expert comments
+        </button>
+      </div>
 
-{isExpertOpen && (
-  <div className="mt-2 text-sm text-gray-700 space-y-2">
-    <p>
-      – I have not heard before that there has been a particular need for such
-      instructions. It has also been noted in the public debate that there have
-      been very few such cases.
-    </p>
-    <p className="font-semibold text-center">Shramarke Aw-Musse</p>
-    <p className="text-gray-500 text-center">Imam of Myyrmäki Mosque</p>
-  </div>
-)}
-<div className="flex justify-end w-full " >
-  <button
-    onClick={() => setIsBackgroundOpen(!isBackgroundOpen)}
-    className={"text-xs text-gray-900 px-3 py-1.5 rounded-full font-semibold hover:bg-gray-100 transition-colors "+ (isBackgroundOpen && "bg-green-400")}
-  >
-    Background info
-  </button>
-</div>
+      {isExpertOpen && (
+        <div className="mt-2 text-sm text-gray-700 space-y-2">
+          <p>
+            – I have not heard before that there has been a particular need for
+            such instructions. It has also been noted in the public debate that
+            there have been very few such cases.
+          </p>
+        <button
+          className="cursor-pointer flex text-xs text-gray-900 px-3 py-1.5 rounded-full font-semibold hover:bg-gray-100 transition-colors "
+        >
+          <img src="share.svg" width="16" className={`mr-1 transition-transform duration-300`}></img>
+          Share
+        </button>
+          <p className="font-semibold text-center">Shramarke Aw-Musse</p>
+          <p className="text-gray-500 text-center">Imam of Myyrmäki Mosque</p>
+        </div>
+      )}
+      <div className="flex justify-end w-full ">
+        <button
+          onClick={() => setIsBackgroundOpen(!isBackgroundOpen)}
+          className={
+            "flex text-xs text-gray-900 px-3 py-1.5 rounded-full font-semibold hover:bg-gray-100 transition-colors cursor-pointer " +
+            (isBackgroundOpen && "bg-green-400")
+          }
+        >
+          <img src="down-chevron.svg" width="16" className={`mr-1 transition-transform duration-300 ${isBackgroundOpen ? 'rotate-180' : ''}`}></img>
+          Background info
+        </button>
+      </div>
 
-{isBackgroundOpen && (
-  <div className="mt-2 text-sm text-gray-700 space-y-2">
-    <p>
-      – This is related to the background of the topic that we will think about the topic in the 
-      Finnish society and outside of it. And it started as a political thing
-      in 2002 but now it has grown to bigger.
-    </p>
-    <p className="font-semibold text-center">Source: 3.5.2013 <a className="underline" href="www.website.com">www.website.com</a></p>
-  </div>
-)}
+      {isBackgroundOpen && (
+        <div className="mt-2 text-sm text-gray-700 space-y-2">
+          <p>
+            – Finns Party MP Vesa-Matti Saarakkala submitted a bill that would ban wearing of face-covering burqas and niqabs in public places, subject to a fine. According to him, Finland should intervene now, when the intervention does not yet affect a significant number of people in Finland, in order to maintain social peace.
+          </p>
+          <p className="font-semibold text-center">
+            Source: 3.5.2013{" "}
+            <a className="underline" href="www.website.com">
+              www.website.com
+            </a>
+          </p>
+        </div>
+      )}
 
+      <div className="flex justify-end w-full ">
+        <button
+          className="cursor-pointer text-xs text-gray-900 px-3 py-1.5 rounded-full font-semibold hover:bg-gray-100 transition-colors "
+        >
+          &#x279A; View Statement
+        </button>
+      </div>
 
-<div className="flex justify-end w-full " >
-  <button
-    className={"text-xs text-gray-900 px-3 py-1.5 rounded-full font-semibold hover:bg-gray-100 transition-colors "+ (isBackgroundOpen && "bg-green-400")}
-  >
-    &#x279A; View Statement
-  </button>
-</div>
+      
     </article>
   );
 }

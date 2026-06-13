@@ -99,9 +99,16 @@ async function fetchXML(url: string): Promise<Record<string, unknown>[]> {
   }
 }
 
+const FAKE_HACKATHON_ARTICLE: Article = {
+  title: "Vantaa makes decicion on schools: burqa ban",
+  url: "https://www.is.fi/kotimaa/art-2000011869140.html",
+  date: new Date(),
+  source: "Ilta-Sanomat",
+};
+
 // Parse a Google News RSS item — title format: "Headline - Source Name"
 async function fetchGoogleNews(): Promise<Article[]> {
-  const articles: Article[] = [];
+  const articles: Article[] = [FAKE_HACKATHON_ARTICLE];
   for (const feed of GOOGLE_NEWS_FEEDS) {
     const items = await fetchXML(feed.url);
     for (const item of items) {
