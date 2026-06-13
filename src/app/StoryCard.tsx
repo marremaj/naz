@@ -178,7 +178,7 @@ export default function StoryCard({ group }: { group: StoryGroup }) {
             there have been very few such cases.
           </p>
         <button
-          className="flex text-xs text-gray-900 px-3 py-1.5 rounded-full font-semibold hover:bg-gray-100 transition-colors "
+          className="cursor-pointer flex text-xs text-gray-900 px-3 py-1.5 rounded-full font-semibold hover:bg-gray-100 transition-colors "
         >
           <img src="share.svg" width="16" className={`mr-1 transition-transform duration-300`}></img>
           Share
@@ -216,7 +216,7 @@ export default function StoryCard({ group }: { group: StoryGroup }) {
 
       <div className="flex justify-end w-full ">
         <button
-          className="text-xs text-gray-900 px-3 py-1.5 rounded-full font-semibold hover:bg-gray-100 transition-colors "
+          className="cursor-pointer text-xs text-gray-900 px-3 py-1.5 rounded-full font-semibold hover:bg-gray-100 transition-colors "
         >
           &#x279A; View Statement
         </button>
