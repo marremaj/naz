@@ -85,9 +85,9 @@ export default async function Home() {
             </nav> */}
           </div>
           <div className="flex items-center gap-3 shrink-0">
-            <span className="text-[11px] text-gray-600 hidden lg:inline">
+            {/* <span className="text-[11px] text-gray-600 hidden lg:inline">
               {new Date().toLocaleDateString("fi-FI", { day: "numeric", month: "short", year: "numeric" })}
-            </span>
+            </span> */}
             <button className="text-xs bg-gray-900 text-white px-3 py-1.5 rounded-full font-semibold hover:bg-gray-800 transition-colors">
               Kirjaudu
             </button>
